@@ -1,4 +1,4 @@
-### Hi, dear future Colleagues👋
+### Hi, dear future colleagues👋
 My name is Chi Zhang, 
 
 I just graduated from RWTH Aachen University with an automation engineering master degree. 
