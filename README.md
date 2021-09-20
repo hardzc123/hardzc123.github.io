@@ -1,7 +1,12 @@
 ### Hi👋
-My name is Chi Zhang, I just graduated from RWTH Aachen University with an automation engineering master degree. 
+My name is Chi Zhang, 
+
+I just graduated from RWTH Aachen University with an automation engineering master degree. 
+
 I am eager to work as a robotics engineer.
+
 I hope the Github repositories can give you some short impression about my project experience.
+
 My vision: robot will do much more than it can do now in 20 years, I would like take part in this transformation actively.
 
 
