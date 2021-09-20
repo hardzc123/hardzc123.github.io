@@ -7,7 +7,7 @@ I am eager to work as a robotics engineer.
 
 I hope the Github repositories can give you some short impression about my project experience.
 
-My vision: robot will do much more than it can do now in 20 years, I would like take part in this transformation actively.
+My vision: robot will do much more than it can do now in 20 years, I would like ro take part in this transformation actively.
 
 
 
