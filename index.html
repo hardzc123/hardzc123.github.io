@@ -2,57 +2,56 @@
 <html lang="en">
 <head>
   <!-- 
-    Basic meta tags for responsiveness and character encoding
-    Make sure this page scales well on different devices 
+    Basic meta configuration 
+    Ensures proper rendering on mobile devices 
   -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chi Zhang - Portfolio</title>
+  <title>Chi Zhang - Horizontal Portfolio</title>
   
-  <!-- 
-    Inline CSS for demonstration.
-    In a real project, consider placing styles in a separate CSS file.
-  -->
   <style>
     /* 
       GLOBAL STYLES 
-      Basic resets and universal settings
+      Use a dark theme background to mimic johnsli style 
     */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
+    html, body {
+      width: 100%;
+      height: 100%;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      color: #333;
-      background: #f2f2f2;
-      line-height: 1.6;
+      background-color: #111;  /* Dark background */
+      color: #fff;             /* White text */
+      overflow-x: hidden;      /* Hide horizontal scrollbar if needed */
+      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
     }
     a {
+      color: #fff;
       text-decoration: none;
-      color: inherit;
     }
-    ul {
-      list-style: none;
+    a:hover {
+      text-decoration: underline;
     }
 
     /* 
       HEADER 
-      This section includes the navigation bar
+      Fixed at top, containing navigation links 
     */
     header {
-      background: #222;
-      color: #fff;
-      padding: 1rem 1.5rem;
+      position: fixed;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+      z-index: 999;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 999;
+      padding: 1rem 2rem;
+      backdrop-filter: blur(10px);    /* Optional: for a glossy effect */
     }
     .logo {
       font-size: 1.2rem;
@@ -60,337 +59,183 @@
       letter-spacing: 1px;
     }
     nav ul {
+      list-style: none;
       display: flex;
       gap: 1.5rem;
     }
-    nav li:hover {
-      text-decoration: underline;
+    nav li {
+      cursor: pointer;
     }
-    
+
     /* 
-      BANNER / HERO 
-      Inspired by HTML5 UP's approach: a large visual section at the top 
+      MAIN CONTAINER 
+      Using flex to lay out sections horizontally 
     */
-    .banner {
-      position: relative;
-      width: 100%;
-      height: 100vh; /* Full screen height */
-      background: url("https://via.placeholder.com/1920x1080/333/fff?text=Banner+Image") no-repeat center center/cover;
+    .horizontal-container {
+      display: flex;
+      flex-direction: row;
+      /* 
+        Each section is 100vw wide; 
+        If you have 5 sections, total width is 500vw 
+      */
+      width: 500vw; /* For 5 sections, adjust if you have more or fewer */
+      height: 100vh;
+      transition: transform 0.5s ease;
+    }
+
+    /* 
+      SECTIONS 
+      Each one occupies full viewport width 
+      You can add different background or color for each 
+    */
+    section {
+      width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      padding: 6rem 2rem; /* 6rem top to avoid header overlap */
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #fff;
     }
-    .banner::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    /* Optional background colors or images for each section */
+    #hello {
+      background: #111; /* same as body, can customize if you like */
     }
-    .banner-content {
-      position: relative;
-      z-index: 1;
-      max-width: 600px;
-      padding: 0 1rem;
+    #work {
+      background: #222;
     }
-    .banner-content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    #blog {
+      background: #333;
     }
-    .banner-content p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      line-height: 1.4;
+    #about {
+      background: #444;
     }
-    .banner-btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #ffbb00;
-      color: #222;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
-    .banner-btn:hover {
-      background: #ffc832;
+    #contact {
+      background: #555;
     }
 
     /* 
-      WRAPPER 
-      This container holds the rest of the sections 
+      SECTION CONTENT HEADINGS, ETC. 
     */
-    .wrapper {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 5rem 1rem; /* Extra top padding to avoid header overlap */
-    }
-
-    /* 
-      ABOUT SECTION 
-      A typical "About Me" style layout 
-    */
-    .section {
-      margin-bottom: 4rem;
-    }
-    .section h2 {
+    .section-title {
       font-size: 2rem;
       margin-bottom: 1rem;
-      text-align: center;
-      position: relative;
     }
-    .section h2::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: #ffbb00;
-      margin: 0.5rem auto;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-    .about-text {
-      font-size: 1rem;
+    .section-desc {
+      max-width: 600px;
       line-height: 1.6;
-    }
-    .about-image {
-      display: flex;
-      justify-content: center;
-    }
-    .about-image img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #ffbb00;
-    }
-
-    /* 
-      PROJECTS SECTION 
-      Grid layout to showcase several projects
-    */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .project-card {
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-3px);
-    }
-    .project-image {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-    .project-content {
-      padding: 1rem;
-    }
-    .project-content h3 {
-      margin-bottom: 0.5rem;
-    }
-    .project-content p {
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-      color: #666;
-      line-height: 1.4;
-    }
-    .project-link {
-      font-weight: bold;
-      color: #ffbb00;
-    }
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
-    /* 
-      CONTACT SECTION 
-      Simple contact info or form area
-    */
-    .contact-info {
-      text-align: center;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    .contact-info a {
-      color: #ffbb00;
-      font-weight: bold;
-    }
-
-    /* 
-      FOOTER 
-      Typically placed at the bottom 
-    */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #222;
       color: #ccc;
-      font-size: 0.9rem;
     }
-    footer a {
-      color: #ffbb00;
+
+    /* 
+      EXAMPLE BUTTON STYLES 
+      For CTA or linking to external pages 
+    */
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #e67e22;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #f39c12;
     }
 
     /* 
       MEDIA QUERIES 
-      Adjust layout for smaller screens 
+      Adjust if needed for smaller devices 
     */
     @media (max-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
+      nav ul {
+        gap: 1rem;
       }
-      .about-image {
-        margin-bottom: 1rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .banner-content h1 {
-        font-size: 2rem;
-      }
-      .banner-content p {
-        font-size: 1rem;
+      .section-title {
+        font-size: 1.5rem;
       }
     }
+
   </style>
 </head>
 <body>
-
-  <!-- Navigation Header -->
+  <!-- Header with navigation -->
   <header>
     <div class="logo">Chi Zhang</div>
     <nav>
       <ul>
+        <li><a href="#hello">Hello</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Banner / Hero Section -->
-  <section class="banner">
-    <div class="banner-content">
-      <h1>Hello, I'm Chi Zhang</h1>
-      <p>I am a front-end beginner learning to build modern, responsive websites.</p>
-      <a class="banner-btn" href="#about">Learn More</a>
-    </div>
-  </section>
-
-  <!-- Wrapper: holds main content sections -->
-  <div class="wrapper">
-    <!-- About Section -->
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <div class="about-grid">
-        <div class="about-image">
-          <!-- Replace this placeholder with your own profile image -->
-          <img src="https://via.placeholder.com/220.png/ccc/333?text=Profile" alt="My Profile Photo">
-        </div>
-        <div class="about-text">
-          <p>
-            Hey there! I'm Chi Zhang, a web design enthusiast who loves exploring new front-end technologies. 
-            My goal is to create visually appealing and user-friendly interfaces that provide a great experience for everyone.
-          </p>
-          <p>
-            Although I'm at the beginning of my journey, I'm continuously learning and improving my skills in 
-            HTML, CSS, and JavaScript. This portfolio showcases some of my practice projects and experiments.
-          </p>
-        </div>
+  <!-- Horizontal container wrapping all sections -->
+  <div class="horizontal-container">
+    <!-- Section 1: Hello -->
+    <section id="hello">
+      <div>
+        <h1 class="section-title">Hello!</h1>
+        <p class="section-desc">
+          Welcome to my horizontal portfolio. I'm Chi Zhang, a beginner in front-end development,
+          learning how to build modern and stylish websites.
+        </p>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <h2>My Projects</h2>
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
-          <img class="project-image" 
-               src="https://via.placeholder.com/600x400/999/fff?text=Project+One" 
-               alt="Project One">
-          <div class="project-content">
-            <h3>Project One</h3>
-            <p>A simple layout using HTML5 & CSS3, demonstrating responsive design principles.</p>
-            <a class="project-link" href="#">View Demo</a>
-          </div>
-        </div>
-        <!-- Project 2 -->
-        <div class="project-card">
-          <img class="project-image" 
-               src="https://via.placeholder.com/600x400/888/fff?text=Project+Two" 
-               alt="Project Two">
-          <div class="project-content">
-            <h3>Project Two</h3>
-            <p>An interactive JavaScript-based webpage that highlights DOM manipulation and dynamic content.</p>
-            <a class="project-link" href="#">View Demo</a>
-          </div>
-        </div>
-        <!-- Project 3 -->
-        <div class="project-card">
-          <img class="project-image" 
-               src="https://via.placeholder.com/600x400/666/fff?text=Project+Three" 
-               alt="Project Three">
-          <div class="project-content">
-            <h3>Project Three</h3>
-            <p>A prototype built with a CSS framework (like Bootstrap or Tailwind) for quick layout and styling.</p>
-            <a class="project-link" href="#">View Demo</a>
-          </div>
-        </div>
+    <!-- Section 2: Work -->
+    <section id="work">
+      <div>
+        <h1 class="section-title">My Work</h1>
+        <p class="section-desc">
+          Here you can showcase your projects. 
+          For each project, consider adding screenshots, descriptions, or links to demos.
+        </p>
+        <a href="#" class="btn">View Project</a>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <p>Have any questions or opportunities?</p>
-        <p>You can reach me at: <a href="mailto:chi.zhang@example.com">chi.zhang@example.com</a></p>
+    <!-- Section 3: Blog -->
+    <section id="blog">
+      <div>
+        <h1 class="section-title">Blog</h1>
+        <p class="section-desc">
+          If you write blog posts or articles, you can mention them here. 
+          Alternatively, link to your Medium, Dev.to, or personal blog platform.
+        </p>
+        <a href="#" class="btn">Go to Blog</a>
+      </div>
+    </section>
+
+    <!-- Section 4: About -->
+    <section id="about">
+      <div>
+        <h1 class="section-title">About Me</h1>
+        <p class="section-desc">
+          I'm a passionate learner exploring front-end technologies such as HTML5, CSS3, and JavaScript.
+          In my free time, I enjoy discovering new design trends and implementing them in personal projects.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: Contact -->
+    <section id="contact">
+      <div>
+        <h1 class="section-title">Contact</h1>
+        <p class="section-desc">
+          Questions or opportunities? Let's talk!
+          <br/><br/>
+          Email: <a href="mailto:chi.zhang@example.com" style="color: #fff;">chi.zhang@example.com</a><br/>
+          GitHub: <a href="https://github.com/chi-zhang" style="color: #fff;">@chi-zhang</a>
+        </p>
       </div>
     </section>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Chi Zhang. All Rights Reserved.</p>
-    <!-- 
-      Optionally include a small attribution for HTML5 UP since you drew inspiration from them:
-      <p>Design inspired by <a href="https://html5up.net/" target="_blank" rel="noopener">HTML5 UP</a></p>
-    -->
-  </footer>
-
-  <!-- 
-    Optional JavaScript for interactive elements
-    Right now it's empty, but you can use it later 
-    for smooth scrolling, form handling, etc.
-  -->
-  <script>
-    // Example: Smooth scroll to sections when nav links are clicked
-    document.querySelectorAll('header nav a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if(target) {
-          window.scrollTo({
-            top: target.offsetTop - 60, // offset for fixed header
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script>
-
 </body>
 </html>
