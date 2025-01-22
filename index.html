@@ -32,6 +32,13 @@
 					<header class="major">
 						<h2>About Me</h2>
 					</header>
+					 <!-- Chatbot Container -->
+					<div id="chatbot-container" style="border: 1px solid #ccc; border-radius: 10px; padding: 20px; width: 100%; max-width: 400px; margin: 20px auto;">
+						<h3 style="text-align: center;">Chat with Me</h3>
+						<div id="chatbox" style="height: 300px; overflow-y: auto; border: 1px solid #ddd; border-radius: 5px; padding: 10px; background-color: #f9f9f9; margin-bottom: 10px;"></div>
+						<input id="user-input" type="text" placeholder="Type your message..." style="width: calc(100% - 50px); padding: 10px; margin-right: 5px;">
+						<button id="send-btn" style="padding: 10px;">Send</button>
+					</div>
 					<img src="gifs/lifeMottoWhiteTransparent.gif" width="50%">
 					<br />
 					<br />
@@ -42,7 +49,7 @@
 						My work revolves around developing machine learning-driven behavior planning algorithms and engineering scalable autonomous driving systems for real-world deployment. 
 						 </p>
 					<p>Below, you will find information about my course projects, personal projects, 
-						internships, and more.</p>
+						career history, and more.</p>
 				</section>
 
 				<ul class="actions">
@@ -74,11 +81,11 @@
 						<div class="row">
 							<div class="item col-3 col-6-small">
 								<img src="images/logos/RWTH.png" style="width:70%">
-								<span class="caption"> <br /> RWTH Aachen University<br />M.Sc. in Automation Engineering<br />(2016-2021) </span>
+								<span class="caption"> <br /> RWTH Aachen<br />MS in Automation Engineering<br />(2016-2021) </span>
 							</div>
 							<div class="item col-3 col-6-small">
 								<img src="images/logos/HUST.png" alt="Forest" style="width:70%">
-								<span class="caption"> <br /> HUST<br />B.Sc. in Mechanical Engineering <br />(2010-2015)</span>
+								<span class="caption"> <br /> HUST<br />BS in Mechanical Engineering <br />(2010-2015)</span>
 							</div>
 						</div>
 					</div>
@@ -178,6 +185,85 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				const chatbox = document.getElementById('chatbox');
+				const userInput = document.getElementById('user-input');
+				const sendBtn = document.getElementById('send-btn');
+			
+				// Function to append messages to the chatbox
+				function appendMessage(sender, text) {
+					const message = document.createElement('div');
+					message.style.margin = '5px 0';
+					message.innerHTML = `<strong>${sender}:</strong> ${text}`;
+					chatbox.appendChild(message);
+					chatbox.scrollTop = chatbox.scrollHeight; // Auto-scroll to the bottom
+				}
+			
+				// // Function to call OpenAI API
+				// async function callChatGPTAPI(message) {
+				// 	try {
+				// 		const response = await fetch('https://api.openai.com/v1/chat/completions', {
+				// 			method: 'POST',
+				// 			headers: {
+				// 				'Content-Type': 'application/json',
+				// 				'Authorization': `Bearer YOUR_OPENAI_API_KEY` // Replace with your API key
+				// 			},
+				// 			body: JSON.stringify({
+				// 				model: 'gpt-3.5-turbo',
+				// 				messages: [{ role: 'user', content: message }]
+				// 			})
+				// 		});
+			
+				// 		const data = await response.json();
+				// 		const reply = data.choices[0].message.content;
+				// 		appendMessage('ChatGPT', reply);
+				// 	} catch (error) {
+				// 		console.error('Error calling OpenAI API:', error);
+				// 		appendMessage('ChatGPT', 'Sorry, something went wrong.');
+				// 	}
+				// }
+
+				// Function to call ChatGPT API hosted on Heroku
+				async function callChatGPTAPI(message) {
+					try {
+						const response = await fetch('https://your-heroku-app.herokuapp.com/chat', { // Replace with your Heroku URL
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({ message: message }) // Send user's message as JSON
+						});
+
+						const data = await response.json(); // Parse response
+						if (data.reply) {
+							appendMessage('ChatGPT', data.reply); // Append ChatGPT's reply to the chatbox
+						} else {
+							appendMessage('ChatGPT', 'No response received. Please try again.');
+						}
+					} catch (error) {
+						console.error('Error calling the ChatGPT API:', error);
+						appendMessage('ChatGPT', 'Sorry, something went wrong.');
+					}
+				}
+			
+				// Event listener for the send button
+				sendBtn.addEventListener('click', () => {
+					const message = userInput.value.trim();
+					if (message) {
+						appendMessage('You', message);
+						userInput.value = '';
+						callChatGPTAPI(message);
+					}
+				});
+			
+				// Allow pressing "Enter" to send messages
+				userInput.addEventListener('keydown', (e) => {
+					if (e.key === 'Enter') {
+						sendBtn.click();
+					}
+				});
+			</script>
 
 	</body>
 </html>
