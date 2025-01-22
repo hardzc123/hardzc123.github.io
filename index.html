@@ -27,91 +27,88 @@
 		<!-- Main -->
 		<div id="main">
 
-			<section id="one" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
-				<!-- About Me -->
-				<div id="about-me" style="flex: 3; min-width: 300px;">
-					<header class="major">
-						<h2>About Me</h2>
-					</header>
+			<section id="one">
+				<!-- 单独的一行: About Me -->
+				<header class="major" style="text-align: left; margin-bottom: 20px;">
+					<h2>About Me</h2>
+				</header>
 			
-					<p style="display: flex; align-items: flex-start;">
-						<span style="flex: 1;">
+				<!-- 内容部分 -->
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+					<!-- 左侧文字内容 -->
+					<div style="flex: 2; min-width: 300px;">
+						<p>
 							I graduated with a Master's degree in Automation Engineering from RWTH Aachen University, 
 							where I focused on autonomous driving and robotics. I previously earned a Bachelor's degree in Mechanical Engineering from HUST.
 							I currently live in Germany, 
 							working as a Machine Learning Software Engineer specializing in planning and decision-making algorithms for autonomous driving. 
 							My work revolves around developing machine learning-driven behavior planning algorithms and engineering scalable autonomous driving systems for real-world deployment.
-						</span>
-						<!-- Chatbot next to this paragraph -->
-						<div id="chatbot-container" style="
-							flex: 1.2;
-							margin-left: 20px;
-							border: 1px solid #e0e0e0;
-							border-radius: 12px;
-							padding: 15px;
-							box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-							background: linear-gradient(135deg, #ffffff, #f9f9f9);
-							height: 300px; /* Adjust height for larger chatbox */
-							display: flex;
-							flex-direction: column;
-							justify-content: space-between;">
-							<h3 style="
-								text-align: center;
-								font-family: 'Arial', sans-serif;
-								font-size: 18px;
-								font-weight: bold;
-								color: #555;
-								margin-bottom: 10px;">Chat with My AI Agent</h3>
-							<div id="chatbox" style="
+						</p>
+						<p>
+							Below, you will find information about my course projects, personal projects, 
+							career history, and more.
+						</p>
+						<ul class="actions">
+							<li><a href="docs/Johnathon_Li_Resume_USA_2024.pdf" class="button">Download Resume</a></li>
+						</ul>
+					</div>
+			
+					<!-- 右侧聊天窗口 -->
+					<div id="chatbot-container" style="
+						flex: 1.5; 
+						min-width: 300px; 
+						border: 1px solid #e0e0e0;
+						border-radius: 12px;
+						padding: 15px;
+						box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+						background: linear-gradient(135deg, #ffffff, #f9f9f9);
+						height: 300px; /* 调整聊天窗口高度 */
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;">
+						<h3 style="
+							text-align: center;
+							font-family: 'Arial', sans-serif;
+							font-size: 18px;
+							font-weight: bold;
+							color: #555;
+							margin-bottom: 10px;">Chat with My AI Agent</h3>
+						<div id="chatbox" style="
+							flex: 1;
+							overflow-y: auto;
+							border: 1px solid #ddd;
+							border-radius: 8px;
+							padding: 10px;
+							background-color: #f7f7f7;
+							font-family: 'Arial', sans-serif;
+							font-size: 14px;
+							line-height: 1.6;
+							color: #333;
+							box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"></div>
+						<div style="margin-top: 10px; display: flex; gap: 10px;">
+							<input id="user-input" type="text" placeholder="Type your message..." style="
 								flex: 1;
-								overflow-y: auto;
-								border: 1px solid #ddd;
-								border-radius: 8px;
 								padding: 10px;
-								background-color: #f7f7f7;
+								border: 1px solid #ccc;
+								border-radius: 6px;
+								font-family: 'Arial', sans-serif;
+								font-size: 14px;">
+							<button id="send-btn" style="
+								padding: 10px 15px;
+								background-color: #4CAF50;
+								color: #fff;
+								border: none;
+								border-radius: 6px;
 								font-family: 'Arial', sans-serif;
 								font-size: 14px;
-								line-height: 1.6;
-								color: #333;
-								box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"></div>
-							<div style="margin-top: 10px; display: flex; gap: 10px;">
-								<input id="user-input" type="text" placeholder="Type your message..." style="
-									flex: 1;
-									padding: 10px;
-									border: 1px solid #ccc;
-									border-radius: 6px;
-									font-family: 'Arial', sans-serif;
-									font-size: 14px;">
-								<button id="send-btn" style="
-									padding: 10px 15px;
-									background-color: #4CAF50;
-									color: #fff;
-									border: none;
-									border-radius: 6px;
-									font-family: 'Arial', sans-serif;
-									font-size: 14px;
-									cursor: pointer;
-									transition: background-color 0.3s ease;">
-									Send
-								</button>
-							</div>
+								cursor: pointer;
+								transition: background-color 0.3s ease;">
+								Send
+							</button>
 						</div>
-					</p>
-				</div>
-			
-				<!-- Additional Text -->
-				<div style="flex: 1; min-width: 300px;">
-					<p>
-						Below, you will find information about my course projects, personal projects, 
-						career history, and more.
-					</p>
-			
-					<ul class="actions">
-						<li><a href="docs/Johnathon_Li_Resume_USA_2024.pdf" class="button">Download Resume</a></li>
-					</ul>
+					</div>
 				</div>
 			</section>
-
 
 				<section id="two">
 					<div>
