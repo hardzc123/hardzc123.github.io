@@ -69,7 +69,7 @@
 						color: #555;
 						margin-bottom: 10px;">Chat with My AI Agent</h3>
 					<div id="chatbox" style="
-						height: 200px;
+						height: 300px;
 						width: 100%;
 						overflow-y: auto;
 						border: 1px solid #ddd;
@@ -301,13 +301,13 @@
 
 						const data = await response.json(); // Parse response
 						if (data.reply) {
-							appendMessage('ChatGPT', data.reply); // Append ChatGPT's reply to the chatbox
+							appendMessage('Chi Zhang (AI)', data.reply); // Append ChatGPT's reply to the chatbox
 						} else {
-							appendMessage('ChatGPT', 'No response received. Please try again.');
+							appendMessage('Chi Zhang (AI)', 'No response received. Please try again.');
 						}
 					} catch (error) {
 						console.error('Error calling the ChatGPT API:', error);
-						appendMessage('ChatGPT', 'Sorry, something went wrong.');
+						appendMessage('Chi Zhang (AI)', 'Sorry, something went wrong.');
 					}
 				}
 			
