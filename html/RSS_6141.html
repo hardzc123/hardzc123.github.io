@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Johnathon Li: RSS</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="icon" href="../images/myLogo.png" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+        <div id="main">
+
+            <!-- Header -->
+			<header id="header">
+				<div class="inner">
+                    <h1><strong>MIT 6.141</strong><br />
+                        Robotic Science and Systems Capstone<br />
+				</div>
+			</header>
+
+            <!-- One -->
+                <section id="one">
+                    <figure>
+                        <img src="../gifs/CAR POV Path Planning.gif">
+                        <figcaption>Our RC Car driving autonomously with Pure Pursuit Control</figcaption>
+                    </figure>
+                   
+                    <figure>
+                        <img src="../gifs/motion_correct.gif">
+                        <figcaption>Motion Model with Dynamically Weighted Gaussian Noise</figcaption>
+                    </figure>
+        
+                    <figure>
+                        <img src="../gifs/moving_cone.gif">
+                        <figcaption>Cone Following with PID Control and Computer Vision</figcaption>
+                    </figure>
+                    <header class="major">
+                        <h2>Course Description</h2>
+                    </header>
+                    <p>“Robotics: Science and Systems” includes both interactive frontal lectures and project-oriented labs. 
+                        The lectures provide a comprehensive overview of mobile robotics and autonomous vehicles, 
+                        covering topics in control and estimation theory, computational perception, computer vision, 
+                        motion planning, and machine learning. The labs exercise these aspects through the design and 
+                        implementation of algorithms and software to make the mini race car platforms fully autonomous. 
+                        The labs are based on ROS, the Robot Operating System — a must-know for roboticists — which will 
+                        be taught in the course. This year the race car scuderia will include cars equipped 
+                        with the Puck VLP-16 Velodyne Lidar, as well as 
+                        other state-of-the-art sensors and embedded computers. The race cars will be provided to 
+                        the students, who will focus on algorithmic aspects.
+                    </p>
+                    <h2>My Role</h2>
+                    <p>
+                    I learned about the entire software stack for autonomous vehicles, I focused 
+                    on implementing lower-level algorithms for state estimation and controls for 
+                    our team. I built the motion model for our Monte-Carlo Particle Filter, and I 
+                    improved the generation of noise to disperse the particles by implementing 
+                    weighted probabilities based on how much motion was occurring in the longitudinal 
+                    lateral directions, which significantly helped in decreasing error in our vehicle 
+                    state estimates. In addition, I developed a novel and enhanced version of a pure 
+                    pursuit controller, in which an adaptive search radius around our racecar was used 
+                    depending on how large the curvature of the perceived path in front of it was. 
+                    This resulted in much better stability and intelligence of the original pure pursuit 
+                    controller that I learned about in class.
+                    </p>
+
+                </section>
+
+
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.poptrox.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
