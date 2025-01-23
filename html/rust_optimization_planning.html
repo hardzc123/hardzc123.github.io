@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Rust Path Planning Algorithms</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body class="is-preload">
+
+    <div id="main">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <h1><strong>Rust Path Planning</strong><br />
+                    BFS, Dijkstra, A*
+                    
+                </h1>
+            </div>
+        </header>
+
+        <!-- Section for GIFs -->
+        <section id="gifs" style="text-align: center; margin-bottom: 20px;">
+            <figure style="display: inline-block; margin: 10px;">
+                <img src="../images/project_pics/bfs.gif" alt="BFS Visualization" style="max-width: 300px; width: 100%; height: auto;">
+                <figcaption>BFS Algorithm</figcaption>
+            </figure>
+            <figure style="display: inline-block; margin: 10px;">
+                <img src="../images/project_pics/dijkstra.gif" alt="Dijkstra Visualization" style="max-width: 300px; width: 100%; height: auto;">
+                <figcaption>Dijkstra Algorithm</figcaption>
+            </figure>
+            <figure style="display: inline-block; margin: 10px;">
+                <img src="../images/project_pics/astar.gif" alt="A* Visualization" style="max-width: 300px; width: 100%; height: auto;">
+                <figcaption>A* Algorithm</figcaption>
+            </figure>
+        </section>
+
+        <!-- Content Section -->
+        <section id="content">
+            <header class="major">
+                <h2>Project Overview</h2>
+            </header>
+            <p style="text-align: left;">
+                This Rust-based project implements classic path planning algorithms—<strong>BFS</strong>, <strong>Dijkstra</strong>, and <strong>A*</strong>—with real-time visualizations. By leveraging Rust’s performance and safety features, the system uses optimized data structures such as <code>BinaryHeap</code> and <code>HashMap</code> to ensure efficient computation. The <code>plotters</code> library is used to generate dynamic GIFs, clearly illustrating each algorithm’s step-by-step process, including explored nodes, obstacles, and the final path.
+            </p>
+
+            <header class="major">
+                <h2>Real-World Applications</h2>
+            </header>
+            <p style="text-align: left;">
+                These algorithms have significant applications in robotics and autonomous systems, including:
+            </p>
+            <ul style="text-align: left;">
+                <li><strong>Robot Navigation:</strong> Enabling robots to move safely through structured environments.</li>
+                <li><strong>Autonomous Vehicles:</strong> Planning efficient routes while avoiding obstacles in dynamic settings.</li>
+                <li><strong>Game AI:</strong> Pathfinding for characters in grid-based maps or virtual worlds.</li>
+            </ul>
+
+            <p style="text-align: left;">
+                This project serves as a robust foundation for exploring and scaling solutions to real-world challenges, with room for extending to advanced algorithms like RRT* or integrating real-world sensor data for adaptive planning.
+            </p>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>
