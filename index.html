@@ -275,28 +275,48 @@
 				// }
 
 				// Function to call ChatGPT API hosted on Heroku
-				async function callChatGPTAPI(message) {
+				// async function callChatGPTAPI(message) {
+				// 	try {
+				// 		const response = await fetch('https://chatgpt-backend-2d695b64b440.herokuapp.com/chat', { // Replace with your Heroku URL
+				// 			method: 'POST',
+				// 			headers: {
+				// 				'Content-Type': 'application/json'
+				// 			},
+				// 			body: JSON.stringify({ message: message }) // Send user's message as JSON
+				// 		});
+
+				// 		const data = await response.json(); // Parse response
+				// 		if (data.reply) {
+				// 			appendMessage('Chi Zhang (AI)', data.reply); // Append ChatGPT's reply to the chatbox
+				// 		} else {
+				// 			appendMessage('Chi Zhang (AI)', 'No response received. Please try again.');
+				// 		}
+				// 	} catch (error) {
+				// 		console.error('Error calling the ChatGPT API:', error);
+				// 		appendMessage('Chi Zhang (AI)', 'Sorry, something went wrong.');
+				// 	}
+				// }
+
+				  // Call the Heroku backend
+				  async function callChatAPI(message) {
 					try {
-						const response = await fetch('https://chatgpt-backend-2d695b64b440.herokuapp.com/chat', { // Replace with your Heroku URL
+						const response = await fetch('https://your-heroku-app-url.herokuapp.com/chat', {
 							method: 'POST',
-							headers: {
-								'Content-Type': 'application/json'
-							},
-							body: JSON.stringify({ message: message }) // Send user's message as JSON
+							headers: { 'Content-Type': 'application/json' },
+							body: JSON.stringify({
+								question: message,
+								proxy_identity: "Chi Zhang",
+								background_info: "Chi Zhang is a Senior System Engineer at Aptiv specializing in ADAS system architecture, AI, and robotics.",
+							}),
 						});
 
-						const data = await response.json(); // Parse response
-						if (data.reply) {
-							appendMessage('Chi Zhang (AI)', data.reply); // Append ChatGPT's reply to the chatbox
-						} else {
-							appendMessage('Chi Zhang (AI)', 'No response received. Please try again.');
-						}
+						const data = await response.json();
+						appendMessage('Chi Zhang (AI Proxy)', data.reply);
 					} catch (error) {
-						console.error('Error calling the ChatGPT API:', error);
-						appendMessage('Chi Zhang (AI)', 'Sorry, something went wrong.');
+						appendMessage('System', 'Sorry, something went wrong.');
 					}
 				}
-			
+						
 				// Event listener for the send button
 				sendBtn.addEventListener('click', () => {
 					const message = userInput.value.trim();
