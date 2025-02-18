@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Rust Path Planning Algorithms</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body class="is-preload">
+
+    <div id="main">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <h1><strong>Rust Path Planning</strong><br />
+                    BFS, Dijkstra, A*
+                    
+                </h1>
+            </div>
+        </header>
+
+        <!-- Section for GIFs -->
+        <!-- <figure style="display: inline-block; margin: 10px;">
+            <img src="../images/project_pics/bfs.gif" alt="BFS Visualization" style="max-width: 300px; width: 90%; height: auto;">
+            <figcaption>BFS Algorithm</figcaption>
+        </figure>
+        <figure style="display: inline-block; margin: 10px;">
+            <img src="../images/project_pics/dijkstra.gif" alt="Dijkstra Visualization" style="max-width: 300px; width: 90%; height: auto;">
+            <figcaption>Dijkstra Algorithm</figcaption>
+        </figure>
+        <figure style="display: inline-block; margin: 10px;">
+            <img src="../images/project_pics/astar.gif" alt="A* Visualization" style="max-width: 300px; width: 90%; height: auto;">
+            <figcaption>A* Algorithm</figcaption>
+        </figure>
+        <figure style="display: inline-block; margin: 10px;">
+            <img src="../images/project_pics/astar.gif" alt="A* Visualization" style="max-width: 300px; width: 90%; height: auto;">
+            <figcaption>A* Algorithm</figcaption>
+        </figure> -->
+    
+        <!-- Blank Space -->
+        <div style="height: 30px;"></div>
+
+        <!-- Content Section -->
+        <section id="content">
+            <header class="major">
+                <h2>Project Overview</h2>
+            </header>
+            <p style="text-align: left;">
+                This project is a hands-on replication of the <strong>knowledge-driven paradigm</strong> for autonomous driving systems. At its core, it implements and demonstrates a practical framework called <strong>DiLu</strong>, designed to handle real-time decision-making in complex driving scenarios. DiLu consists of four tightly integrated modules—<em>Environment</em>, <em>Reasoning</em>, <em>Reflection</em>, and <em>Memory</em>—which together enable a robust cycle of data collection, high-level inference, self-evaluation, and adaptive action selection.
+            </p>
+            <p style="text-align: left;">
+                The process begins with the <em>Environment</em> module, which provides real-time observations of the driving scene, including traffic density, road conditions, and potential obstacles or hazards. These observations feed into the <em>Reasoning</em> module, where a prompt generator synthesizes the current scenario description with a set of few-shot experiences retrieved from the <em>Memory</em> module. By leveraging an out-of-the-box Large Language Model (LLM), DiLu interprets these prompts and proposes context-specific driving strategies. A decision decoder then translates the LLM’s response into concrete actions, such as changing lanes, maintaining speed, or applying the brakes.
+            </p>
+            <p style="text-align: left;">
+                The <em>Reflection</em> module acts as a meta-layer that continuously evaluates the effectiveness of chosen actions. It monitors outcomes—such as successful lane merges or near-collision scenarios—and updates the knowledge repository in the Memory module. This feedback loop refines future decision-making, helping DiLu adapt to both recurring and novel situations. Over time, the system develops a more nuanced understanding of diverse driving environments, improving its ability to navigate safely and efficiently.
+            </p>
+            <p style="text-align: left;">
+                By building upon a knowledge-driven approach, DiLu highlights the potential for Large Language Models to serve as flexible reasoning engines in safety-critical applications. The architecture not only draws on historical data but also responds dynamically to fresh inputs, allowing for an agile response to unexpected changes in traffic flow, road surfaces, or weather patterns.
+            </p>
+        
+            <header class="major">
+                <h2>Real-World Applications</h2>
+            </header>
+            <p style="text-align: left;">
+                The DiLu framework is designed with a range of real-world use cases in mind, particularly in the domain of autonomous vehicles and intelligent robotics:
+            </p>
+            <ul style="text-align: left;">
+                <li>
+                    <strong>Autonomous Driving:</strong> By leveraging the continuous feedback loop between real-time observations and stored experiences, DiLu can generate context-aware driving strategies. For instance, the system may decide to slow down in heavy rain or recalculate a route when encountering unforeseen road closures.
+                </li>
+                <li>
+                    <strong>Advanced Driver Assistance Systems (ADAS):</strong> Components of DiLu can be integrated into semi-autonomous platforms to assist human drivers with safe lane changes, adaptive cruise control, or collision avoidance. These capabilities can evolve over time as the framework accumulates and reflects on new traffic patterns and scenarios.
+                </li>
+                <li>
+                    <strong>Robotics and Drone Navigation:</strong> Beyond cars, DiLu’s modular structure can guide robots and drones in environments where obstacles and goals are continually shifting. Integration of sensor data (e.g., LiDAR, camera, radar) into the Environment module ensures that the system’s reasoning aligns with the latest situational context.
+                </li>
+                <li>
+                    <strong>Smart City Infrastructure:</strong> In larger-scale deployments, DiLu could coordinate with traffic management centers to optimize signals, traffic flow, and pedestrian safety. By capturing collective experiences, the Memory module can recognize recurring congestion patterns and suggest strategic interventions.
+                </li>
+            </ul>
+            <p style="text-align: left;">
+                Thanks to its modular design, DiLu can be extended to incorporate more advanced planning techniques and refined data sources. Potential enhancements include integrating with sensor-fusion pipelines for a richer environmental model, utilizing reinforcement learning to continuously optimize decision policies, or adding specialized risk assessment tools to strengthen the Reflection module. With the power of language-based reasoning at its core, this framework underscores how cognitive and data-driven approaches can merge to address the evolving needs of autonomous systems.
+            </p>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>
