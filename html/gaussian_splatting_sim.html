@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Autonomous Driving Simulation - Gaussian Splatting</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body class="is-preload">
+
+    <div id="main">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <h1><strong>Autonomous Driving Simulation</strong><br />
+                    Gaussian Splatting for 3D Scene Reconstruction
+                </h1>
+            </div>
+        </header>
+
+        <!-- Hero Image -->
+        <section id="hero" style="text-align:center;">
+            <img src="../images/fulls/01.jpg" alt="Gaussian Splatting" style="max-width: 900px; width: 95%; height: auto; border-radius: 6px;" />
+        </section>
+
+        <div style="height: 24px;"></div>
+
+        <!-- Content Section -->
+        <section id="content">
+            <header class="major">
+                <h2>Project Overview</h2>
+            </header>
+            <p style="text-align: left;">
+                This project explores integrating <strong>Gaussian Splatting</strong> into an autonomous driving simulation workflow
+                for photorealistic 3D scene reconstruction and fast novel-view rendering. The goal is to enable rapid
+                environment playback and perception testing by reconstructing driving scenes from multi-view image sequences
+                and then rendering them in real time for planning and control evaluation.
+            </p>
+
+            <header class="major">
+                <h2>Pipeline</h2>
+            </header>
+            <ol style="text-align: left;">
+                <li><strong>Data Capture</strong>: Collect multi-view images and camera poses from a simulator or dataset.</li>
+                <li><strong>3D Reconstruction</strong>: Train a Gaussian Splatting model to represent the scene.</li>
+                <li><strong>Fast Rendering</strong>: Render novel views for ego camera and surround cameras at interactive rates.</li>
+                <li><strong>Simulation Integration</strong>: Feed rendered frames to perception and planning modules for closed-loop tests.</li>
+            </ol>
+
+            <header class="major">
+                <h2>Notes</h2>
+            </header>
+            <p style="text-align: left;">
+                This is a basic framework page. Future updates will include dataset preparation scripts, training
+                configuration, and a minimal demo with open-source Gaussian Splatting implementations.
+            </p>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>
+
+
